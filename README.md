@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 코하루 마켓
 
-## Getting Started
+소품 쇼핑몰
 
-First, run the development server:
+## 기술 스택
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Frontend
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src="https://img.shields.io/badge/TypeScript-blue?style=flat-square&logo=TypeScript&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Tailwindcss-rgb(56%2C%20189%2C%20248)?style=flat-square&logo=tailwindcss&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/zustand-593040?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAflBMVEVHcEwUEA0bGRUYFRJRS0LIf2umbFgbGRYODQsQDgwWExCUYk8fGRWzdWDZhm0PDQyagnAPDQlaVU1DQDh0W1CzhHM/OzM4NC9EPjhCPDY6NTA+OTRxYlcnJCAuKyY0MSx1ZlpJQTpPRDtfVUtoYVYLCwmBdWl2UUKqRSFiOSpzH0IgAAAAGHRSTlMASufA/Pr+/hFrpf6I/fw0/CCmzenbrt/GIBGYAAAB5ElEQVQ4jZ1S2XLbMAzUTcmyHOdqCUAELx32//9gQSmN3EzTh2Lskexd7i4IZNn/1ctUPf8Dbis0nv848Pajffj50zSXOz9IvEzkTZu13fn0Wp66zgx13ZinQ9ERsi5e4xSnqgpgeR2EcGh2VbhcAjB48AHAe43crw8ZztRf6pq0DlqD3x7amvNB6BKhB/kbQoAARPIOp4PwRGvdeFHQATTwtCzRguHuIFhokLT4B22nqxvH0XlD+NmntuSTgdjjsoxTFYURrC7er/kWISRUcsm3WsbYX26JwXh9r99Srxw2XM+oUeTjLeGji/Mw1L0QnnDHtaQ0m3/l3BRHp9a6Tr12uwGlLkTBORdHP8/OsTVbhNMeYLkG0uycmY2Z1ZzeaL/MMuEQ+6bhZKGUUfPMYqWI208FXIdmuIONLvL97qRZVxky2WFxr5MCifJ0u00pqkIs9klsISnIzWiw+EFwzIj7OFreJDYaANu4rtKIEZzz7Eipt1F5T9YwWaUsoi0+RpFbOS1bkmahgdBasnKpaPLfwyq3BdhdREV2CkiWqjwWQtFGCT4JydJRkADFgWfPStZBEm5FAhOaR1w6UUyIIDQxJ5SkZfalzoptwuRj5Xj+FReRc6FMKqXKv8A7J++kvkO/q19x+T/RziKiAwAAAABJRU5ErkJggg==&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/Socket.io--Clinet-010101?&style=flat-square&logo=Socket.io&logoColor=white&" /></a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img src="https://img.shields.io/badge/TypeScript-blue?style=flat-square&logo=TypeScript&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=flat-square&logo=nestjs&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/Prisma-3982CE?style=flat-square&logo=Prisma&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens" /></a>
+<img src="https://img.shields.io/badge/Socket.io-010101?&style=flat-square&logo=Socket.io&logoColor=white" /></a>
 
-## Learn More
+### Database
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="https://img.shields.io/badge/mysql-005C84?style=flat-square&logo=mysql&logoColor=white" /></a>
