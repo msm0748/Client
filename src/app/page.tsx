@@ -1,3 +1,5 @@
+import Layout from '@/components/layout';
+
 export default function Home() {
-  return <main>메인 페이지</main>;
+  return <Layout>메인 페이지</Layout>;
 }
