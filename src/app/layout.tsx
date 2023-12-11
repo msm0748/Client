@@ -12,9 +12,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={inter.className}>{children}</body>
     </html>
   );
