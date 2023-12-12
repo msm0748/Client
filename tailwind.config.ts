@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          200: '#fcdddd',
+          400: '#F494A9',
+        },
+        semi_primary: '#bce3ef',
+        secondary: '#bfd9ff',
+        danger: '#e74c3c',
+      },
       container: {
         screens: {
           lg: '1280px',
