@@ -2,6 +2,10 @@
 
 소품 쇼핑몰
 
+## 웹사이트 주소
+
+<a href="https://koharu.vercel.app/" target="_blank">https://koharu.vercel.app/</a>
+
 ## 기술 스택
 
 ### Frontend
