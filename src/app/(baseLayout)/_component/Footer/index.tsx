@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="fixed bottom-0 block w-full sm:hidden">
         <MobileMenubar />
       </div>
-      <div className="sm:mb-0 mb-[70px]">
+      <div className="sm:mb-0 mb-14">
         <footer>Footer</footer>
       </div>
     </div>
