@@ -24,7 +24,7 @@ export default function Header() {
                 <img src="/logo.png" alt="로고" className="w-full h-full" />
               </span>
               <span
-                className={`${rubikBubbles.className} md:text-4xl text-2xl text-[#F494A9] md:tracking-wider tracking-wide`}
+                className={`${rubikBubbles.className} md:text-4xl text-2xl text-primary-400 md:tracking-wider tracking-wide`}
               >
                 koharu
               </span>
