@@ -1,7 +1,7 @@
 'use client';
 
 import { BsPerson, BsPersonFill, BsGrid, BsGridFill } from 'react-icons/bs';
-import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { IoMdHeartEmpty, IoMdHeart, IoMdSearch } from 'react-icons/io';
 import { IoHomeOutline, IoHomeSharp } from 'react-icons/io5';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
 
@@ -11,28 +11,38 @@ export default function MobileMenubar() {
   return (
     <div>
       <nav>
-        <ul className="flex justify-around bg-primary-200 items-center py-4">
+        <ul className="flex justify-around bg-primary-200 items-center pt-2.5 pb-1.5">
+          <li>
+            <button className="flex flex-col gap-1 items-center justify-center text-xl">
+              <IoMdSearch />
+              <span className="text-xs text-neutral-500">검색</span>
+            </button>
+          </li>
+          <li>
+            <button className="flex flex-col gap-1 items-center justify-center text-xl">
+              {segment === 'category' ? <BsGridFill /> : <BsGrid />}
+              <span className="text-xs text-neutral-500">카테고리</span>
+            </button>
+          </li>
           <li>
             <button
               onClick={() => router.push('/')}
-              className="flex items-center justify-center text-2xl"
+              className="flex flex-col gap-1 items-center justify-center text-xl"
             >
               {segment === null ? <IoHomeSharp /> : <IoHomeOutline />}
+              <span className="text-xs text-neutral-500">홈</span>
             </button>
           </li>
           <li>
-            <button className="flex items-center justify-center text-2xl">
-              {segment === 'category' ? <BsGridFill /> : <BsGrid />}
-            </button>
-          </li>
-          <li>
-            <button className="flex items-center justify-center text-2xl">
+            <button className="flex flex-col gap-1 items-center justify-center text-xl">
               {segment === 'favorite' ? <IoMdHeart /> : <IoMdHeartEmpty />}
+              <span className="text-xs text-neutral-500">찜</span>
             </button>
           </li>
           <li>
-            <button className="flex items-center justify-center text-2xl">
+            <button className="flex flex-col gap-1 items-center justify-center text-xl">
               {segment === 'mypage' ? <BsPersonFill /> : <BsPerson />}
+              <span className="text-xs text-neutral-500">마이</span>
             </button>
           </li>
         </ul>
