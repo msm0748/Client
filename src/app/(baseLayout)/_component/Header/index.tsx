@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="border-b">
       <div className="md:container">
-        <div className="flex justify-between md:pb-6 md:pt-8 pb-2 pt-4 items-center px-4 md:px-0">
+        <div className="flex justify-between md:pb-6 md:pt-8 pb-3 pt-4 items-center px-4 md:px-0">
           <div>
             <Link href="/" className="flex items-center md:gap-4 gap-2">
               <span className="block md:w-10 w-8 md:h-10 h-8">
@@ -33,10 +33,7 @@ export default function Header() {
           <Search />
           <div>
             <div className="flex md:gap-5 gap-4 items-center">
-              <button
-                type="button"
-                className="text-2xl md:hidden justify-center items-center flex pt-1"
-              >
+              <button type="button" className="text-2xl md:hidden justify-center items-center flex pt-1">
                 <IoMdSearch />
               </button>
               <button className="md:text-3xl text-2xl flex justify-center items-center">
