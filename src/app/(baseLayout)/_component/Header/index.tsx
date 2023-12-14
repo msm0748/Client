@@ -7,6 +7,7 @@ import { BsCart2, BsPerson } from 'react-icons/bs';
 import { IoMdHeartEmpty, IoMdSearch } from 'react-icons/io';
 import Category from './Category';
 import Search from './Search';
+import { useRouter } from 'next/navigation';
 
 const rubikBubbles = Rubik_Bubbles({
   subsets: ['latin'],
@@ -14,6 +15,7 @@ const rubikBubbles = Rubik_Bubbles({
 });
 
 export default function Header() {
+  const router = useRouter();
   return (
     <header className="border-b">
       <div className="md:container">
@@ -36,13 +38,25 @@ export default function Header() {
               <button type="button" className="text-2xl md:hidden justify-center items-center flex pt-1">
                 <IoMdSearch />
               </button>
-              <button className="md:text-3xl text-2xl flex justify-center items-center">
+              <button
+                type="button"
+                onClick={() => router.push('/cart')}
+                className="md:text-3xl text-2xl flex justify-center items-center"
+              >
                 <BsCart2 />
               </button>
-              <button className="text-3xl justify-center items-center md:flex hidden">
+              <button
+                type="button"
+                onClick={() => router.push('/favor')}
+                className="text-3xl justify-center items-center md:flex hidden"
+              >
                 <IoMdHeartEmpty />
               </button>
-              <button className="text-3xl justify-center items-center md:flex hidden">
+              <button
+                type="button"
+                onClick={() => router.push('/mypage')}
+                className="text-3xl justify-center items-center md:flex hidden"
+              >
                 <BsPerson />
               </button>
             </div>
