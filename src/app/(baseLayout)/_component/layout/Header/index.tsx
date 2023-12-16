@@ -35,30 +35,44 @@ export default function Header() {
           <Search />
           <div>
             <div className="flex md:gap-5 gap-4 items-center">
-              <button type="button" className="text-2xl md:hidden justify-center items-center flex pt-1">
-                <IoMdSearch />
-              </button>
-              <button
-                type="button"
-                onClick={() => router.push('/cart')}
-                className="md:text-3xl text-2xl flex justify-center items-center"
-              >
-                <BsCart2 />
-              </button>
-              <button
-                type="button"
-                onClick={() => router.push('/favor')}
-                className="text-3xl justify-center items-center md:flex hidden"
-              >
-                <IoMdHeartEmpty />
-              </button>
-              <button
-                type="button"
-                onClick={() => router.push('/mypage')}
-                className="text-3xl justify-center items-center md:flex hidden"
-              >
-                <BsPerson />
-              </button>
+              <div className="md:hidden">
+                <button
+                  type="button"
+                  className="text-2xl justify-center items-center flex pt-1"
+                >
+                  <IoMdSearch />
+                </button>
+              </div>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => router.push('/cart')}
+                  className="md:text-3xl text-2xl flex justify-center items-center"
+                >
+                  <BsCart2 />
+                </button>
+                <div className="flex items-center justify-center bg-[#ef7014] px-1 min-w-[16px] h-4 absolute rounded-full -top-1 -right-1 z-10 text-white">
+                  <span className="text-xs font-light">0</span>
+                </div>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => router.push('/favor')}
+                  className="text-3xl justify-center items-center md:flex hidden"
+                >
+                  <IoMdHeartEmpty />
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => router.push('/mypage')}
+                  className="text-3xl justify-center items-center md:flex hidden"
+                >
+                  <BsPerson />
+                </button>
+              </div>
             </div>
           </div>
         </div>
