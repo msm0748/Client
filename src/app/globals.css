@@ -11,6 +11,9 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
+  main {
+    margin-top: 40px;
+  }
 }
 
 @layer components {
