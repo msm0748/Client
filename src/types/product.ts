@@ -4,7 +4,7 @@ export interface Product {
   href: string;
   price: number;
   title: string;
-  rating: string;
+  rating: number;
   reviewCount: number;
   sale?: string;
 }
