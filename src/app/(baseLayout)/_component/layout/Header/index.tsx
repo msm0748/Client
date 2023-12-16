@@ -55,20 +55,20 @@ export default function Header() {
                   <span className="text-xs font-light">0</span>
                 </div>
               </div>
-              <div>
+              <div className="hidden md:block">
                 <button
                   type="button"
                   onClick={() => router.push('/favor')}
-                  className="text-3xl justify-center items-center md:flex hidden"
+                  className="text-3xl justify-center items-center flex"
                 >
                   <IoMdHeartEmpty />
                 </button>
               </div>
-              <div>
+              <div className="hidden md:block">
                 <button
                   type="button"
                   onClick={() => router.push('/mypage')}
-                  className="text-3xl justify-center items-center md:flex hidden"
+                  className="text-3xl justify-center items-center flex"
                 >
                   <BsPerson />
                 </button>
