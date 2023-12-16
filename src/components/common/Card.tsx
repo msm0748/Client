@@ -7,7 +7,7 @@ interface Props {
 
 export default function Card({ products }: Props) {
   return (
-    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8">
+    <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 xl:gap-x-8">
       {products.map((product) => (
         <a key={product.id} href={product.href} className="group">
           <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
