@@ -20,7 +20,7 @@ export default function Header() {
     <header className="border-b">
       <div className="md:container">
         <div className="flex justify-between md:pb-6 md:pt-8 pb-3 pt-4 items-center px-4 md:px-0">
-          <div>
+          <h1>
             <Link href="/" className="flex items-center md:gap-4 gap-2">
               <span className="block md:w-10 w-8 md:h-10 h-8">
                 <img src="/logo.png" alt="로고" className="w-full h-full" />
@@ -31,15 +31,12 @@ export default function Header() {
                 koharu
               </span>
             </Link>
-          </div>
+          </h1>
           <Search />
           <div>
             <div className="flex md:gap-5 gap-4 items-center">
               <div className="md:hidden">
-                <button
-                  type="button"
-                  className="text-2xl justify-center items-center flex pt-1"
-                >
+                <button type="button" className="text-2xl justify-center items-center flex pt-1">
                   <IoMdSearch />
                 </button>
               </div>
