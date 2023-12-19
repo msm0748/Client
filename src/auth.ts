@@ -13,29 +13,49 @@ export const {
     KakaoProvider({
       clientId: process.env.KAKAO_CLIENT_ID!,
       clientSecret: process.env.KAKAO_CLIENT_SECRET!,
-    }),
-  ],
-  callbacks: {
-    async signIn({ user }) {
-      if (!user) {
-        throw new Error('No profile');
-      }
+      async profile(profile) {
+        const name = profile.kakao_account?.profile?.nickname;
+        const email = profile.kakao_account?.email;
+        const image = profile.kakao_account?.profile?.profile_image_url;
 
-      const { name, email, image } = user;
+        const response = await fetch('http://localhost:8000/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({
+            name,
+            email,
+            image,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-      await fetch('http://localhost:8000/auth/register', {
-        method: 'POST',
-        body: JSON.stringify({
+        const data = await response.json();
+
+        return {
+          id: profile.id.toString(),
           name,
           email,
           image,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
+          backendTokens: {
+            accessToken: data.token,
+          },
+        };
+      },
+    }),
+  ],
+  callbacks: {
+    async signIn() {
       return true;
+    },
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+
+    async session({ session, token }) {
+      session.backendTokens = token.backendTokens;
+
+      return session;
     },
   },
 });
