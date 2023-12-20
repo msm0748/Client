@@ -37,9 +37,7 @@ export const {
           name,
           email,
           image,
-          backendTokens: {
-            accessToken: data.token,
-          },
+          backendTokens: data.backendTokens,
         };
       },
     }),
