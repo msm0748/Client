@@ -15,7 +15,7 @@ export default function Item({ icon, text, href, segment }: Props) {
     <div className="mx-3 my-1">
       <Link href={href}>
         <div
-          className={`relative py-2 ${
+          className={`relative ${icon ? 'py-2' : 'py-1.5'} ${
             segments[segments[1] ? 1 : 0] === segment
               ? 'bg-sky-100'
               : 'hover:bg-slate-100'
@@ -27,7 +27,7 @@ export default function Item({ icon, text, href, segment }: Props) {
             {icon}
           </div>
           <div className="ml-10">
-            <div className="text-sm">{text}</div>
+            <div className={`text-sm ${!icon && 'leading-4'}`}>{text}</div>
           </div>
         </div>
       </Link>
