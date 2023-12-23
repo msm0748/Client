@@ -1,5 +1,4 @@
 import Header from './_component/Header';
-import SideBar from './_component/SideBar';
 
 export default function AdminPage() {
   return (
