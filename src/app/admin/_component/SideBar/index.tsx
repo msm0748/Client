@@ -1,6 +1,6 @@
-'use client';
 import Link from 'next/link';
 import Item from './Item';
+import List from './List';
 import { BsGrid } from 'react-icons/bs';
 import { HiOutlineShoppingBag } from 'react-icons/hi2';
 import { AiOutlineUser } from 'react-icons/ai';
@@ -16,10 +16,32 @@ export default function SideBar() {
           </h1>
         </div>
         <div>
-          <Item icon={<BsGrid />} text="대시보드" href="/admin" segment={null} />
-          <Item icon={<HiOutlineShoppingBag />} text="쇼핑" href="/admin/shopping" segment={'shopping'} />
-          <Item icon={<AiOutlineUser />} text="고객 관리" href="/admin/customer" segment={'customer'} />
-          <Item icon={<TfiStatsUp />} text="통계" href="/admin/stats" segment={'stats'} />
+          <Item
+            icon={<BsGrid />}
+            text="대시보드"
+            href="/admin"
+            segment={undefined}
+          />
+          <List
+            icon={<HiOutlineShoppingBag />}
+            text="쇼핑"
+            segment={'shopping'}
+          >
+            <Item text="상품" href="/admin/shopping" segment={'shopping'} />
+            <Item text="주문" href="/admin/shopping/order" segment={'order'} />
+          </List>
+          <Item
+            icon={<AiOutlineUser />}
+            text="고객 관리"
+            href="/admin/customer"
+            segment={'customer'}
+          />
+          <Item
+            icon={<TfiStatsUp />}
+            text="통계"
+            href="/admin/stats"
+            segment={'stats'}
+          />
         </div>
       </div>
     </div>
