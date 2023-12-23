@@ -21,6 +21,6 @@
     display: none;
   }
   .admin-h2 {
-    @apply text-lg font-bold;
+    @apply text-lg font-semibold;
   }
 }
