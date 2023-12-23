@@ -11,38 +11,30 @@ export default function SideBar() {
     <div className="fixed z-50 left-0 top-0 bottom-0 w-56 shadow-[0_8px_12px_0_rgba(0,0,0,0.1)]">
       <div>
         <div>
-          <h1 className="p-5 text-xl font-bold">
+          <h1 className="p-5 text-xl font-bold text-primary-400">
             <Link href={'/admin'}>koharu</Link>
           </h1>
         </div>
-        <div>
-          <Item
-            icon={<BsGrid />}
-            text="대시보드"
-            href="/admin"
-            segment={undefined}
-          />
-          <List
-            icon={<HiOutlineShoppingBag />}
-            text="쇼핑"
-            segment={'shopping'}
-          >
-            <Item text="상품" href="/admin/shopping" segment={'shopping'} />
-            <Item text="주문" href="/admin/shopping/order" segment={'order'} />
-          </List>
-          <Item
-            icon={<AiOutlineUser />}
-            text="고객 관리"
-            href="/admin/customer"
-            segment={'customer'}
-          />
-          <Item
-            icon={<TfiStatsUp />}
-            text="통계"
-            href="/admin/stats"
-            segment={'stats'}
-          />
-        </div>
+        <Item
+          icon={<BsGrid />}
+          text="대시보드"
+          href="/admin"
+          segment={undefined}
+        />
+        <List icon={<HiOutlineShoppingBag />} text="쇼핑" segment={'shopping'}>
+          <Item text="상품" href="/admin/shopping" segment={'shopping'} />
+          <Item text="주문" href="/admin/shopping/order" segment={'order'} />
+        </List>
+        <Item
+          icon={<AiOutlineUser />}
+          text="고객 관리"
+          href="/admin/customer"
+          segment={'customer'}
+        />
+        <List icon={<TfiStatsUp />} text="통계" segment={'stats'}>
+          <Item text="홈" href="/admin/stats" segment={'stats'} />
+          <Item text="매출" href="/admin/stats/take" segment={'take'} />
+        </List>
       </div>
     </div>
   );
