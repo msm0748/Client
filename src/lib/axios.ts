@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
 
+const baseURL = process.env.NEXT_PUBLIC_API_URI,
+  isServer = typeof window === 'undefined';
+
 export const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URI,
+  baseURL,
 });
 
 async function refreshToken() {
@@ -20,9 +23,18 @@ async function refreshToken() {
 }
 
 axiosInstance.interceptors.request.use(
-  function (config) {
-    const accessToken = getCookie('accessToken');
-    config.headers.Authorization = 'Bearer ' + accessToken;
+  async function (config) {
+    if (isServer) {
+      const { cookies } = await import('next/headers'),
+        token = cookies().get('accessToken')?.value;
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    } else {
+      const accessToken = getCookie('accessToken');
+      config.headers.Authorization = 'Bearer ' + accessToken;
+    }
     return config;
   },
   function (error) {
@@ -40,7 +52,13 @@ axiosInstance.interceptors.response.use(
       try {
         const accessToken = await refreshToken();
 
-        setCookie('accessToken', accessToken);
+        if (isServer) {
+          const { cookies } = await import('next/headers');
+          cookies().set('accessToken', accessToken);
+        } else {
+          setCookie('accessToken', accessToken);
+        }
+
         originalRequest.headers.Authorization = 'Bearer ' + accessToken;
 
         return axios(originalRequest);
