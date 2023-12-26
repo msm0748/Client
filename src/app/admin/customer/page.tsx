@@ -38,12 +38,10 @@ export default function CustomerPage() {
             <tbody>
               {users &&
                 users.map((user) => (
-                  <tr key={user.customerId} className="text-slate-800">
+                  <tr key={user.id} className="text-slate-800">
                     <td className="p-2">{user.name}</td>
                     <td className="p-2">{user.email}</td>
-                    <td className="p-2">
-                      {dayjs(user.createdAt).format('YYYY-MM-DD')}
-                    </td>
+                    <td className="p-2">{dayjs(user.createdAt).format('YYYY-MM-DD')}</td>
                   </tr>
                 ))}
             </tbody>
