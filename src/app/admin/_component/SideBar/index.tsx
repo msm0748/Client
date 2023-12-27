@@ -23,6 +23,11 @@ export default function SideBar() {
         />
         <List icon={<HiOutlineShoppingBag />} text="쇼핑" segment={'shopping'}>
           <Item text="상품" href="/admin/shopping" segment={'shopping'} />
+          <Item
+            text="상품 등록"
+            href="/admin/shopping/create"
+            segment={'create'}
+          />
           <Item text="주문" href="/admin/shopping/order" segment={'order'} />
         </List>
         <Item

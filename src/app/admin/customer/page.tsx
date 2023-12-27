@@ -2,7 +2,7 @@
 import { axiosInstance } from '@/lib/axios';
 import Header from '../_component/Header';
 import { useEffect, useState } from 'react';
-import { User } from '@/types/user';
+import { User } from '@/types/User';
 import dayjs from 'dayjs';
 
 export default function CustomerPage() {
@@ -41,7 +41,9 @@ export default function CustomerPage() {
                   <tr key={user.id} className="text-slate-800">
                     <td className="p-2">{user.name}</td>
                     <td className="p-2">{user.email}</td>
-                    <td className="p-2">{dayjs(user.createdAt).format('YYYY-MM-DD')}</td>
+                    <td className="p-2">
+                      {dayjs(user.createdAt).format('YYYY-MM-DD')}
+                    </td>
                   </tr>
                 ))}
             </tbody>
