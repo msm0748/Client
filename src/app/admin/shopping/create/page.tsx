@@ -5,6 +5,7 @@ import styles from './table.module.css';
 import { useEffect, useState } from 'react';
 import { ListBox as IListBox } from '@/types/ListBox';
 import { axiosInstance } from '@/lib/axios';
+import Editor from '../_component/Editor';
 
 export default function CreatePage() {
   const [category, setCategory] = useState<IListBox[]>([]);
@@ -43,12 +44,14 @@ export default function CreatePage() {
                 <th>카테고리 선택</th>
                 <td>
                   {categorySelected && (
-                    <ListBox
-                      data={category}
-                      selected={categorySelected}
-                      setSelected={setCategorySelected}
-                    />
+                    <ListBox data={category} selected={categorySelected} setSelected={setCategorySelected} />
                   )}
+                </td>
+              </tr>
+              <tr>
+                <th>상세 설명</th>
+                <td>
+                  <Editor />
                 </td>
               </tr>
             </tbody>
