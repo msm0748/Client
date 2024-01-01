@@ -1,4 +1,4 @@
-import { Product } from '@/types/product';
+import { Product } from '@/types/Product';
 import Image from 'next/image';
 
 interface Props {
@@ -25,9 +25,7 @@ export default function Card({ products }: Props) {
             <span className="text-sm text-gray-700 ">{product.title}</span>
           </div>
           <p className="mt-1">
-            <span className="font-medium text-gray-900">
-              {product.price.toLocaleString('ko-KR')}
-            </span>
+            <span className="font-medium text-gray-900">{product.price.toLocaleString('ko-KR')}</span>
             <span className="text-sm ml-[2px]">원</span>
           </p>
           <div className="mt-1 flex items-center gap-2">
@@ -48,9 +46,7 @@ export default function Card({ products }: Props) {
                 className={`bg-no-repeat inline-block h-4 absolute`}
               ></span>
             </span>
-            <span className="text-xs text-slate-400">
-              ({product.reviewCount})
-            </span>
+            <span className="text-xs text-slate-400">({product.reviewCount})</span>
           </div>
         </a>
       ))}
