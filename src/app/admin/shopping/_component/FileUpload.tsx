@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { axiosInstance } from '@/lib/axios';
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { AiOutlineClose, AiOutlineCamera } from 'react-icons/ai';
@@ -34,8 +35,7 @@ export default function FileUpload() {
 
       // 중복 파일 제거
       const uniqueFiles = truncatedFiles.filter(
-        (file, index, self) =>
-          index === self.findIndex((f) => f.name === file.name)
+        (file, index, self) => index === self.findIndex((f) => f.name === file.name)
       );
 
       return uniqueFiles;
@@ -71,14 +71,39 @@ export default function FileUpload() {
   ));
 
   const remainingCameraIcons = Math.max(5 - myFiles.length, 0);
-  const cameraIcons = Array.from(
-    { length: remainingCameraIcons },
-    (_, index) => (
-      <li key={`camera-${index}`}>
-        <AiOutlineCamera className="w-32 h-[72px] text-slate-300" />
-      </li>
-    )
-  );
+  const cameraIcons = Array.from({ length: remainingCameraIcons }, (_, index) => (
+    <li key={`camera-${index}`}>
+      <AiOutlineCamera className="w-32 h-[72px] text-slate-300" />
+    </li>
+  ));
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+
+    myFiles.forEach((file) => {
+      formData.append('files', file);
+    });
+
+    try {
+      // 실제 서버 엔드포인트 및 파일 전송 방식에 맞게 수정
+      const response = await axiosInstance.post('/admin/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (response.status === 201) {
+        // 서버에서 파일 처리가 성공적으로 이루어진 경우
+        // 여기서 필요한 로직 추가 가능
+        console.log('File upload successful');
+      } else {
+        // 서버에서 파일 처리가 실패한 경우
+        console.error('File upload failed');
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
 
   return (
     <div className="flex flex-col">
@@ -94,6 +119,9 @@ export default function FileUpload() {
           {files} {cameraIcons}
         </ul>
       </div>
+      <button onClick={handleUpload} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+        전송
+      </button>
     </div>
   );
 }
