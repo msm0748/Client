@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { ListBox as IListBox } from '@/types/ListBox';
 import { axiosInstance } from '@/lib/axios';
 import Editor from '../_component/Editor';
+import FileUpload from '../_component/FileUpload';
 
 export default function CreatePage() {
   const [category, setCategory] = useState<IListBox[]>([]);
@@ -24,6 +25,7 @@ export default function CreatePage() {
   useEffect(() => {
     setCategorySelected(category[0]);
   }, [category]);
+
   return (
     <div>
       <Header>
@@ -44,7 +46,11 @@ export default function CreatePage() {
                 <th>카테고리 선택</th>
                 <td>
                   {categorySelected && (
-                    <ListBox data={category} selected={categorySelected} setSelected={setCategorySelected} />
+                    <ListBox
+                      data={category}
+                      selected={categorySelected}
+                      setSelected={setCategorySelected}
+                    />
                   )}
                 </td>
               </tr>
@@ -52,6 +58,14 @@ export default function CreatePage() {
                 <th>상세 설명</th>
                 <td>
                   <Editor />
+                </td>
+              </tr>
+              <tr>
+                <th>대표 이미지</th>
+                <td>
+                  <div className="h-40">
+                    <FileUpload />
+                  </div>
                 </td>
               </tr>
             </tbody>
