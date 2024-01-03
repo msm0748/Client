@@ -1,62 +1,37 @@
+'use client';
 import Card from '@/components/common/Card';
-
-const products = [
-  {
-    id: 1,
-    title: '[당일발송][크리스마스]감성 불멍 벽난로 무드등+솔방울',
-    href: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    image:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    price: 5000,
-    rating: 80,
-    reviewCount: 20,
-  },
-  {
-    id: 2,
-    title: '얌얌즈 PVC 파우치( 아미파 amifa)  비닐케이스',
-    href: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    image:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    price: 5000,
-    rating: 70,
-    reviewCount: 30,
-  },
-  {
-    id: 3,
-    title: '산리오 캐릭터 아크릴 미니 챰 랜덤  헬로키티 한교동 케로피',
-    href: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    image:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    price: 5000,
-    rating: 75,
-    reviewCount: 40,
-  },
-  {
-    id: 4,
-    title: '마이멜로디 지퍼백 30장 산리오 보관 케이스',
-    href: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    image:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    price: 5000,
-    rating: 68,
-    reviewCount: 2,
-  },
-  {
-    id: 5,
-    title: '산리오 지퍼백 B6사이즈 8장 마스크 보관 케이스',
-    href: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    image:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    price: 5000,
-    rating: 90,
-    reviewCount: 27,
-  },
-];
+import CardList from '@/components/common/CardList';
+import { home } from '@/data/dummy';
+import { useEffect, useState } from 'react';
+import { IoIosArrowBack } from 'react-icons/io';
+import Pagination from './_component/ui/Pagination';
 
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
+  const totalPages = Math.ceil(home.length / itemsPerPage);
+
+  // 현재 페이지에 필요한 데이터 추출
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageData = home.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   return (
     <main className="container">
-      <Card products={products} />
+      <CardList>
+        {currentPageData.map((product, index) => (
+          <Card key={index} product={product} />
+        ))}
+      </CardList>
+      <Pagination handlePageChange={handlePageChange} currentPage={currentPage} totalPages={totalPages} />
     </main>
   );
 }
