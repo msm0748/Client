@@ -1,31 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ListBox as IListBox } from '@/types/ListBox';
-import { Product } from '@/types/product';
+import { Product } from '@/types/Product';
+import { sortingOptions } from '@/data/sortingOptions';
 
-const category = [
-  {
-    id: 1,
-    name: '인기순',
-  },
-  {
-    id: 2,
-    name: '구매후기 많은순',
-  },
-  {
-    id: 3,
-    name: '낮은 가격순',
-  },
-  {
-    id: 4,
-    name: '높은 가격순',
-  },
-];
-
-export default function useCategoryFilter(initialData: Product[], initialCategory: IListBox[]) {
+export default function useCategoryFilter(initialData: Product[]) {
   const [data, setData] = useState(initialData);
-  const [categorySelected, setCategorySelected] = useState(initialCategory[0]);
+  const [categorySelected, setCategorySelected] = useState(sortingOptions[0]);
 
   useEffect(() => {
     switch (categorySelected.id) {
