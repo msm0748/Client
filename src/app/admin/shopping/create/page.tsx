@@ -10,21 +10,17 @@ import FileUpload from '../_component/FileUpload';
 
 export default function CreatePage() {
   const [category, setCategory] = useState<IListBox[]>([]);
-  const [categorySelected, setCategorySelected] = useState<IListBox>();
+  const [categorySelected, setCategorySelected] = useState<IListBox>(category[0]);
 
   useEffect(() => {
     const getCategory = async () => {
       const response = await axiosInstance.get('/product/category');
       const data = response.data;
-      console.log(data, 'data');
       setCategory(data);
+      setCategorySelected(data[0]);
     };
     getCategory();
   }, []);
-
-  useEffect(() => {
-    setCategorySelected(category[0]);
-  }, [category]);
 
   return (
     <div>
@@ -34,42 +30,42 @@ export default function CreatePage() {
       <main>
         <div className="mb-4 bg-white border">
           <h2 className="p-2 font-semibold">기본 정보</h2>
-          <table className={`w-full border-t ${styles.table}`}>
-            <tbody>
-              <tr>
-                <th>상품명</th>
-                <td>
-                  <input type="text" className="border rounded-sm px-2" />
-                </td>
-              </tr>
-              <tr>
-                <th>카테고리 선택</th>
-                <td>
-                  {categorySelected && (
-                    <ListBox
-                      data={category}
-                      selected={categorySelected}
-                      setSelected={setCategorySelected}
-                    />
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>상세 설명</th>
-                <td>
-                  <Editor />
-                </td>
-              </tr>
-              <tr>
-                <th>대표 이미지</th>
-                <td>
-                  <div className="h-40">
-                    <FileUpload />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <table className={`w-full border-t ${styles.table}`}>
+              <tbody>
+                <tr>
+                  <th>상품명</th>
+                  <td>
+                    <input type="text" className="border rounded-sm px-2" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>카테고리 선택</th>
+                  <td>
+                    {categorySelected && (
+                      <div className="w-40">
+                        <ListBox data={category} selected={categorySelected} setSelected={setCategorySelected} />
+                      </div>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <th>상세 설명</th>
+                  <td>
+                    <Editor />
+                  </td>
+                </tr>
+                <tr>
+                  <th>대표 이미지</th>
+                  <td>
+                    <div>
+                      <FileUpload />
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>
