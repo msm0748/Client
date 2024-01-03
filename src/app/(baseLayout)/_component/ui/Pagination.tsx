@@ -1,7 +1,9 @@
+'use client';
+
 import { IoIosArrowBack } from 'react-icons/io';
 
 interface Props {
-  handlePageChange: (currentIndex: number) => void;
+  handlePageChange: (pageIndex: number) => void;
   currentPage: number;
   totalPages: number;
 }
