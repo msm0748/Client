@@ -1,4 +1,4 @@
-import { toy } from '@/data/dummy';
+import { toy } from '@/data/dummy/product/toy';
 import ProductList from '../_component/ui/ProductList';
 
 export default function ToyPage() {
