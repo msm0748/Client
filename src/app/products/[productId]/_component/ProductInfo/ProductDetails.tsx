@@ -1,4 +1,5 @@
 import Rating from '@/components/common/Rating';
+import calculateDiscountRate from '@/lib/calculateDiscountRate';
 import { Product } from '@/types/Product';
 
 interface Props {
@@ -15,8 +16,28 @@ export default function ProductDetails({ product }: Props) {
         </a>
       </div>
       <div className="md:mt-2">
-        <span className="md:text-3xl text-xl font-semibold">{product.price.toLocaleString('ko-KR')}</span>
-        <span className="md:text-xl">원</span>
+        {product.price === product.sale ? (
+          <>
+            <span className="md:text-3xl text-xl font-semibold">
+              {product.sale.toLocaleString('ko-KR')}
+              <span className="font-normal">원</span>
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="md:text-3xl text-xl font-semibold mr-2 text-red-600">
+              {calculateDiscountRate(product.price, product.sale)}%
+            </span>
+            <span className="md:text-3xl text-xl font-semibold">
+              {product.sale.toLocaleString('ko-KR')}
+              <span className="font-normal">원</span>
+            </span>
+            <span className="md:text-2xl text-xl line-through text-gray-300 ml-3">
+              {product.price.toLocaleString('ko-KR')}
+              <span>원</span>
+            </span>
+          </>
+        )}
       </div>
       <div className="mt-4">
         <div className="flex border-b py-3">

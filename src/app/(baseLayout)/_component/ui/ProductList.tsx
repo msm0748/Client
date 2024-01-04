@@ -37,7 +37,7 @@ export default function ProductList({ products }: Props) {
 
   return (
     <main className="container">
-      <div className="md:mb-12 mb-8 flex justify-end">
+      <div className="mb-4 flex justify-end">
         <div className="w-48">
           <ListBox data={sortingOptions} selected={categorySelected} setSelected={setCategorySelected} />
         </div>
