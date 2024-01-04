@@ -12,7 +12,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   main {
-    margin-top: 40px;
+    @apply md:mt-10 mt-5;
   }
 }
 
