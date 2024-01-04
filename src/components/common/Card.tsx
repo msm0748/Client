@@ -1,5 +1,6 @@
 import { Product } from '@/types/Product';
 import Image from 'next/image';
+import Rating from './Rating';
 
 interface Props {
   product: Product;
@@ -7,7 +8,7 @@ interface Props {
 
 export default function Card({ product }: Props) {
   return (
-    <a key={product.id} href={product.href} className="group">
+    <a key={product.id} href={`/products/${product.id}`} className="group">
       <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 xl:h-56 h-40">
         <Image
           width={500}
@@ -15,37 +16,20 @@ export default function Card({ product }: Props) {
           // loading="lazy"
           priority
           src={product.image}
-          alt={product.title}
+          alt={product.name}
           className="h-full w-full object-cover object-center group-hover:opacity-75"
         />
       </div>
       <div className="mt-2 truncate">
-        <span className="text-sm text-gray-700 ">{product.title}</span>
+        <span className="text-sm text-gray-700 ">{product.name}</span>
       </div>
       <p className="mt-1">
-        <span className="font-medium text-gray-900">{product.price.toLocaleString('ko-KR')}</span>
+        <span className="font-medium text-gray-900">
+          {product.price.toLocaleString('ko-KR')}
+        </span>
         <span className="text-sm ml-[2px]">원</span>
       </p>
-      <div className="mt-1 flex items-center gap-2">
-        <span
-          style={{
-            backgroundImage: `url('/rating.png')`,
-            backgroundSize: '70px',
-          }}
-          className="bg-no-repeat inline-block w-[70px] h-4 relative"
-        >
-          <span
-            style={{
-              backgroundImage: `url('/rating.png')`,
-              backgroundSize: '70px',
-              backgroundPositionY: '-17px',
-              width: `${product.rating}%`,
-            }}
-            className={`bg-no-repeat inline-block h-4 absolute`}
-          ></span>
-        </span>
-        <span className="text-xs text-slate-400">({product.reviewCount})</span>
-      </div>
+      <Rating product={product} />
     </a>
   );
 }
