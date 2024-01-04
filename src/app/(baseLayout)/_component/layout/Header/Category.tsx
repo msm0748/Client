@@ -6,8 +6,9 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 
 export default function Category() {
   const segment = useSelectedLayoutSegment();
+
   return (
-    <nav>
+    <nav className="px-2 md:px-0">
       <ul className="flex items-center justify-between font-semibold overflow-x-auto flex-nowrap no-scroll">
         {category.map((item, index) => (
           <li key={index} className="relative">
