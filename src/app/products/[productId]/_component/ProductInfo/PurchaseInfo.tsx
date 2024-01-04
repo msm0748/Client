@@ -38,7 +38,7 @@ export default function PurchaseInfo({ product }: Props) {
         <div className="flex justify-between items-end">
           <span className="text-lg">총 상품 금액</span>
           <div className="text-orange-700">
-            <span className="font-bold text-3xl">{(product.price + 3000).toLocaleString('ko-KR')}</span>
+            <span className="font-bold text-3xl">{(product.sale + 3500).toLocaleString('ko-KR')}</span>
             <span className="text-xl">원</span>
           </div>
         </div>
