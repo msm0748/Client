@@ -2,6 +2,7 @@ import { Product } from '@/types/Product';
 import Image from 'next/image';
 import Rating from './Rating';
 import Link from 'next/link';
+import calculateDiscountRate from '@/lib/calculateDiscountRate';
 
 interface Props {
   product: Product;
@@ -24,7 +25,10 @@ export default function Card({ product }: Props) {
         <span className="text-sm text-gray-700 ">{product.name}</span>
       </div>
       <p className="mt-1">
-        <span className="font-medium text-gray-900">{product.price.toLocaleString('ko-KR')}</span>
+        {product.price !== product.sale && (
+          <span className="font-medium mr-1 text-red-600">{calculateDiscountRate(product.price, product.sale)}%</span>
+        )}
+        <span className="font-medium text-gray-900">{product.sale.toLocaleString('ko-KR')}</span>
         <span className="text-sm ml-[2px]">원</span>
       </p>
       <Rating product={product} />
