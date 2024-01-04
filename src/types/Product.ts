@@ -4,8 +4,8 @@ export interface Product {
   name: string;
   price: number;
   rating: number;
+  sale: number;
   reviewCount: number;
-  sale?: string;
 }
 
 export interface ProductDetail {
@@ -14,7 +14,7 @@ export interface ProductDetail {
   description: string;
   count: number;
   price: number;
-  sale?: number;
+  sale: number;
   image1: string;
   image2?: string;
   image3?: string;
