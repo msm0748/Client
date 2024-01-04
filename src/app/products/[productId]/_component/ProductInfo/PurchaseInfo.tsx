@@ -5,17 +5,18 @@ import Buttons from './Buttons';
 import { useState } from 'react';
 import Select from '../common/Select';
 import SellingOption from './SellingOption';
+import TotalPrice from './TotalPrice';
 
-interface Option {
-  value: string;
-  label: string;
-}
+// interface Option {
+//   value: string;
+//   label: string;
+// }
 
-const options: Option[] = [
-  { value: 'option1', label: 'Option 1' },
-  { value: 'option2', label: 'Option 2' },
-  { value: 'option3', label: 'Option 3' },
-];
+// const options: Option[] = [
+//   { value: 'option1', label: 'Option 1' },
+//   { value: 'option2', label: 'Option 2' },
+//   { value: 'option3', label: 'Option 3' },
+// ];
 
 interface Props {
   product: Product;
@@ -29,7 +30,7 @@ export default function PurchaseInfo({ product }: Props) {
   //   setSelectedOption(selectedValue);
   // };
   return (
-    <div>
+    <div className="hidden md:block">
       {/* <div>
         <span className="font-semibold">옵션 선택</span>
       </div>
@@ -40,17 +41,7 @@ export default function PurchaseInfo({ product }: Props) {
         <SellingOption name={product.name} sale={product.sale} count={count} setCount={setCount} />
       </div>
       <div className="mt-6">
-        <div className="flex justify-between items-end">
-          <span className="text-lg">총 상품 금액</span>
-          <div className="text-orange-700">
-            <span className="font-bold text-3xl">
-              {(product.sale * count >= 50000 ? product.sale * count : product.sale * count + 3500).toLocaleString(
-                'ko-KR',
-              )}
-            </span>
-            <span className="text-xl">원</span>
-          </div>
-        </div>
+        <TotalPrice sale={product.sale} count={count} />
       </div>
       <div className="mt-6">
         <Buttons />
