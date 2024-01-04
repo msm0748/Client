@@ -14,40 +14,6 @@ export const {
     KakaoProvider({
       clientId: process.env.KAKAO_CLIENT_ID!,
       clientSecret: process.env.KAKAO_CLIENT_SECRET!,
-      async profile(profile) {
-        const name = profile.kakao_account?.profile?.nickname;
-        const email = profile.kakao_account?.email;
-        const image = profile.kakao_account?.profile?.profile_image_url;
-
-        const response = await fetch('http://localhost:8000/auth/login', {
-          method: 'POST',
-          body: JSON.stringify({
-            name,
-            email,
-            image,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        const data = await response.json();
-
-        if (data) {
-          const { accessToken, refreshToken } = data;
-          // 브라우저에 쿠키를 심어주는 것
-          cookies().set('accessToken', accessToken);
-          cookies().set('refreshToken', refreshToken);
-        }
-
-        return {
-          id: String(profile.id),
-          name,
-          email,
-          image,
-          role: data.role,
-        };
-      },
     }),
   ],
   callbacks: {
