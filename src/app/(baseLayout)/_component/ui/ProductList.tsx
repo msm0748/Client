@@ -43,8 +43,8 @@ export default function ProductList({ products }: Props) {
         </div>
       </div>
       <CardList>
-        {currentPageData.map((product, index) => (
-          <Card key={index} product={product} />
+        {currentPageData.map(product => (
+          <Card key={product.id} product={product} />
         ))}
       </CardList>
       <Pagination handlePageChange={handlePageChange} currentPage={currentPage} totalPages={totalPages} />
