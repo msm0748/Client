@@ -19,7 +19,7 @@ export default function ProductInfo({ product }: Props) {
         <div className="mt-2">
           <ProductDetails product={product} />
         </div>
-        <div className="mt-4">
+        <div className="mt-10">
           <PurchaseInfo product={product} />
         </div>
       </div>
