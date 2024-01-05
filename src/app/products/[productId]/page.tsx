@@ -1,6 +1,5 @@
 import { allData } from '@/data/dummy/product';
 import ProductInfo from './_component/ProductInfo';
-import MobilePurchaseButton from './_component/ProductInfo/MobilePurchaseButton';
 
 interface Props {
   params: {
@@ -16,7 +15,6 @@ export default function ProductDetailPage({ params }: Props) {
   return (
     <main className="container pb-20">
       <ProductInfo product={product} />
-      <MobilePurchaseButton product={product} />
     </main>
   );
 }
