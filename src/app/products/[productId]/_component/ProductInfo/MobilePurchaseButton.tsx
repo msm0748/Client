@@ -1,25 +1,12 @@
 'use client';
 
-import { useCallback, useState } from 'react';
 import { IoMdHeartEmpty } from 'react-icons/io';
-import MobilePurchaseInfo from './MobilePurchaseInfo';
-import { Product } from '@/types/Product';
 
 interface Props {
-  product: Product;
+  openModal: () => void;
 }
 
-export default function MobilePurchaseButton({ product }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
+export default function MobilePurchaseButton({ openModal }: Props) {
   return (
     <>
       <div className="fixed container left-0 right-0 bottom-0 z-50 bg-[rgba(255,255,255,0.8)] py-2 md:hidden">
@@ -35,7 +22,6 @@ export default function MobilePurchaseButton({ product }: Props) {
           </button>
         </div>
       </div>
-      <MobilePurchaseInfo isOpen={isOpen} closeModal={closeModal} product={product} />
     </>
   );
 }

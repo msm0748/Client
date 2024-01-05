@@ -3,17 +3,17 @@
 import Modal from '@/components/common/Modal';
 import SellingOption from '../common/SellingOption';
 import { Product } from '@/types/Product';
-import { useState } from 'react';
 import TotalPrice from '../common/TotalPrice';
 
 interface Props {
   isOpen: boolean;
   closeModal: () => void;
   product: Product;
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function MobilePurchaseInfo({ isOpen, closeModal, product }: Props) {
-  const [count, setCount] = useState(1);
+export default function MobilePurchaseInfo({ isOpen, closeModal, product, count, setCount }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={closeModal}>
       <div>
