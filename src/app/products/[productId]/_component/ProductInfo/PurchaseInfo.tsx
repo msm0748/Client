@@ -4,8 +4,8 @@ import { Product } from '@/types/Product';
 import Buttons from './Buttons';
 import { useState } from 'react';
 import Select from '../common/Select';
-import SellingOption from './SellingOption';
-import TotalPrice from './TotalPrice';
+import SellingOption from '../common/SellingOption';
+import TotalPrice from '../common/TotalPrice';
 
 // interface Option {
 //   value: string;

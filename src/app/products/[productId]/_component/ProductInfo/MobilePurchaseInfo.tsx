@@ -1,10 +1,10 @@
 'use client';
 
 import Modal from '@/components/common/Modal';
-import SellingOption from './SellingOption';
+import SellingOption from '../common/SellingOption';
 import { Product } from '@/types/Product';
 import { useState } from 'react';
-import TotalPrice from './TotalPrice';
+import TotalPrice from '../common/TotalPrice';
 
 interface Props {
   isOpen: boolean;
