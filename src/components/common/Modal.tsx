@@ -29,9 +29,20 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     if (!isTablet) {
       onClose();
     }
-
-    console.log('언제 되니');
   }, [isTablet, onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      // 컴포넌트가 언마운트되면 body 스타일 원복
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
