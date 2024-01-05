@@ -7,7 +7,7 @@ interface Props {
 
 export default function BaseLayout({ children }: Props) {
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <header className="border-b">
         <div className="md:container">
           <HeaderNavbar />
@@ -16,7 +16,7 @@ export default function BaseLayout({ children }: Props) {
           </div>
         </div>
       </header>
-      {children}
-    </>
+      <div className="flex-1">{children}</div>
+    </div>
   );
 }

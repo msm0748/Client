@@ -60,7 +60,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     <>
       {isOpen && (
         <div className="fixed inset-0 w-full h-full overflow-hidden flex items-center justify-center z-50 bg-[rgba(0,0,0,0.5)]">
-          <div ref={modalRef} className="absolute bottom-0 w-full bg-white rounded-lg shadow-lg p-4 pb-2">
+          <div ref={modalRef} className="absolute bottom-0 w-full bg-white rounded-t-lg shadow-lg p-4 pb-2">
             {children}
           </div>
         </div>

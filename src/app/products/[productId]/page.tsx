@@ -14,7 +14,7 @@ export default function ProductDetailPage({ params }: Props) {
 
   if (!product) return <div>해당 상품이 없습니다.</div>;
   return (
-    <main className="container">
+    <main className="container pb-20">
       <ProductInfo product={product} />
       <MobilePurchaseButton product={product} />
     </main>
