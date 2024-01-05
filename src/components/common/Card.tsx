@@ -11,14 +11,15 @@ interface Props {
 export default function Card({ product }: Props) {
   return (
     <Link key={product.id} href={`/products/${product.id}`} className="group">
-      <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 xl:h-56 h-40">
+      <div className="relative w-full pt-[100%] overflow-hidden rounded bg-gray-200">
         <Image
-          width={500}
-          height={500}
+          fill
           priority
+          sizes="(max-width: 480px) 480px, 600px"
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover object-center group-hover:opacity-75"
+          style={{ objectFit: 'cover' }}
+          className="group-hover:opacity-75"
         />
       </div>
       <div className="mt-2 truncate">

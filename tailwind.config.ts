@@ -20,14 +20,8 @@ const config: Config = {
       container: {
         screens: {
           lg: '1280px',
-          md: '768px',
-          // sm: '640px',
         },
         center: true,
-        padding: {
-          DEFAULT: '1rem',
-          sm: '0',
-        },
       },
       width: {
         screen: '100dvw',

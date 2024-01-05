@@ -14,6 +14,10 @@
   main {
     @apply md:mt-10 mt-5;
   }
+
+  .container {
+    @apply xl:px-0 md:px-10 px-4;
+  }
 }
 
 @layer components {
