@@ -39,7 +39,7 @@ export default function ProductDetails({ product }: Props) {
           </>
         )}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 md:text-base text-sm">
         <div className="flex border-b py-3">
           <span className="w-[84px] font-semibold">배송비</span>
           <div>
@@ -47,7 +47,7 @@ export default function ProductDetails({ product }: Props) {
               <span>3,500원</span>
             </div>
             <div>
-              <span className="text-sm mt-1 text-slate-400">50,000원 이상 무료배송</span>
+              <span className="md:text-sm text-xs mt-1 text-slate-400">50,000원 이상 무료배송</span>
             </div>
           </div>
         </div>
