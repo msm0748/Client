@@ -14,13 +14,13 @@ export default function useCategoryFilter(initialData: Product[]) {
         setData(initialData);
         break;
       case 2:
-        setData((prev) => [...prev].sort((a, b) => b.reviewCount - a.reviewCount));
+        setData(prev => [...prev].sort((a, b) => b.reviewCount - a.reviewCount));
         break;
       case 3:
-        setData((prev) => [...prev].sort((a, b) => a.price - b.price));
+        setData(prev => [...prev].sort((a, b) => a.sale - b.sale));
         break;
       case 4:
-        setData((prev) => [...prev].sort((a, b) => b.price - a.price));
+        setData(prev => [...prev].sort((a, b) => b.sale - a.sale));
         break;
       default:
         break;
