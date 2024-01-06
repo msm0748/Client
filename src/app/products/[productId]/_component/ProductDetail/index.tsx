@@ -1,20 +1,26 @@
 'use client';
 
 import { Element } from 'react-scroll';
+import Info from './Info';
+import Review from './Review';
+import Question from './Question';
+import Delivery from './Delivery';
 
 export default function ProductDetail() {
   return (
     <div>
-      <Element name="tab1">
-        <h2>Tab 1 Content</h2>
-        <p>Content for Tab 1...</p>
+      <Element name="tab1" className="h-[1200px]">
+        <Info />
       </Element>
-      <div className="h-[1600px]"></div>
-      <Element name="tab2">
-        <h2>Tab 2 Content</h2>
-        <p>Content for Tab 2...</p>
+      <Element name="tab2" className="h-[1200px]">
+        <Review />
       </Element>
-      <div className="h-[1600px]"></div>
+      <Element name="tab3" className="h-[1200px]">
+        <Question />
+      </Element>
+      <Element name="tab4" className="h-[1200px]">
+        <Delivery />
+      </Element>
     </div>
   );
 }

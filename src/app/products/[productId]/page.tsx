@@ -2,6 +2,7 @@ import { allData } from '@/data/dummy/product';
 import ProductInfo from './_component/ProductInfo';
 import Tabs from './_component/common/Tabs';
 import ProductDetail from './_component/ProductDetail';
+import ProductReview from './_component/ProductReview';
 
 interface Props {
   params: {
